@@ -27,10 +27,10 @@ const pool = new Pool()
 
 app.use(bodyParser.json());
 app.get('/', (req, res) => {
-    res.send('Hello Segment!?');
+    res.send('Hello Segment!');
 });
 
-app.get('/page', (req, res) => {
+app.get('/now', (req, res) => {
     let now = "";
     pool.query('SELECT NOW()', (err, result) => {
         if(err) {
