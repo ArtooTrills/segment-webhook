@@ -87,8 +87,9 @@ app.post('/track', (req, res) => {
             return res.send(403).json({'message': 'Bad payload type:' + reqData.type});
     }
     console.log(reqData.type, reqData);
-    pool.query(query.text, query.values, (err, res) => {
+    pool.query(query.text, query.values, (err, result) => {
         if(err) {
+            console.log(err);
             return res.sendStatus(500);
         }
 
