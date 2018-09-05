@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser');
-const uuidv3 = require('uuid/v3');
+const uuidv4 = require('uuid/v4');
 
 const app = express()
 
@@ -69,7 +69,7 @@ let getTrackQuery = function(uuid, data) {
 app.post('/track', (req, res) => {
     let reqData = flattenObject(req.body);
     let query = '';
-    let uuid = uuidv3('http://api.artoo.in', uuidv3.URL);
+    let uuid = uuidv4();
     switch(reqData.type) {
         case "identify":
             query = getIdentifyQuery(uuid, reqData)
